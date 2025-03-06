@@ -60,7 +60,7 @@ python app.py
 4. Send vehicle detection data to ThingSpeak.
 5. Wait 10 seconds for parking slot data update.
 6. Retrieve slot information from ThingSpeak.
-7. Display detected vehicle, license plate, and slot information in the web interface.
+7. Display detected vehicle, license plate, and slot information in the web Interface.
 
 ## **Project Structure**
 ```bash
