@@ -47,6 +47,10 @@ The **IoT-Based Smart Parking System** is an intelligent and automated parking s
 - **Enhanced AI Models** for improved vehicle detection and plate recognition.
 - **Mobile App** for real-time parking status updates and reservations.
 
+- ## Project Report  
+You can read the full project report [here](./IOT based Car Parking System.pdf).
+
+
 ---
 **Feel free to contribute to this project by submitting pull requests or opening issues!** 🚀
 
