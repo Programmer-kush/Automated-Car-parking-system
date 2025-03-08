@@ -1,81 +1,52 @@
-# **Automated Parking System**
+# IoT-Based Smart Parking System
 
-## **Overview**
-The **Automated Parking System** is a Flask-based application that utilizes **YOLO** for vehicle and license plate detection, **Tesseract OCR** for license plate recognition, and **ThingSpeak API** for real-time parking slot management.
+## Overview
+The **IoT-Based Smart Parking System** is an intelligent and automated parking solution that leverages **YOLOv8** for vehicle detection, **ultrasonic sensors** for slot availability tracking, and **ESP32** microcontrollers for IoT-based communication. This project aims to enhance the efficiency of parking management by minimizing human intervention and ensuring seamless vehicle entry and exit.
 
-## **Features**
-- 🚗 **Vehicle Detection**: Detects cars, bikes, and other vehicles using a trained YOLO model.
-- 🏷️ **License Plate Recognition**: Extracts license plate numbers using OCR.
-- 📡 **Real-time Data Communication**: Sends vehicle detection data to **ThingSpeak API**.
-- 🚦 **Parking Slot Monitoring**: Retrieves available slots from **ThingSpeak**.
-- 🌐 **Web Interface**: Displays processed data using a Flask web app.
+## Features
+- **Real-time Vehicle Detection**: Uses YOLOv8 to identify incoming vehicles and capture license plates via OCR.
+- **Automated Parking Management**: Determines parking slot availability using ultrasonic sensors.
+- **Smart Entry & Exit Control**: If a parking slot is available, the system opens the gate automatically.
+- **Cloud-Based Data Storage**: Stores vehicle entry and exit details in a database.
+- **Live Slot Display**: An LCD screen at the entrance shows real-time slot availability.
+- **IoT Communication**: Uses ESP32 to communicate with the cloud via Flask and ThingSpeak.
 
-## **Tech Stack**
-- **Backend**: Flask
-- **Computer Vision**: YOLO (Ultralytics), OpenCV
-- **OCR**: Tesseract
-- **Cloud Integration**: ThingSpeak API
-- **Frontend**: HTML, JavaScript (via Flask templates)
+## System Workflow
+1. **Vehicle Detection**: The YOLOv8 model detects an approaching object. If it is classified as a vehicle, the system proceeds to the next step.
+2. **License Plate Recognition**: The system captures the vehicle's number plate using OCR and stores it in a cloud database.
+3. **Slot Availability Check**: The ESP32 receives a signal to check available parking slots using ultrasonic sensors.
+4. **Gate Control**: If a slot is available, the gate opens automatically, allowing the vehicle to enter.
+5. **Slot Display**: An LCD near the entrance displays the available slot number or a "No Space Available" message.
+6. **Exit Processing**: The system re-detects the vehicle at the exit, logs the exit time, and opens the gate.
 
-## **Installation**
+## Technologies Used
+- **Machine Learning**: YOLOv8 for vehicle detection and OCR for license plate recognition.
+- **IoT Hardware**: ESP32 microcontroller, ultrasonic sensors, LCD display.
+- **Cloud & Networking**: Flask server for data transmission, ThingSpeak for cloud communication.
+- **Database**: Cloud-based storage for tracking vehicle entries and exits.
 
-```bash
-# 1️⃣ Clone the Repository
-git clone https://github.com/SaranshGupta02/Automated-Parking-System.git
-cd Automated-Parking-System
+## My Contributions
+- **IoT System Design**: Designed the **IoT architecture and layout**, ensuring smooth integration between hardware and software components.
+- **ThingSpeak Communication**: Managed **data transmission between ESP32 and the cloud**, enabling real-time updates on slot availability and gate control.
 
-# 2️⃣ Install Dependencies
-pip install flask ultralytics opencv-python pytesseract requests
+## Installation & Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/smart-parking-system.git
+   ```
+2. Install dependencies:
+   ```bash
+   pip install flask opencv-python numpy
+   ```
+3. Configure ESP32 to connect with the Flask server and ThingSpeak.
+4. Train the YOLOv8 model for vehicle detection if needed.
+5. Deploy the system and connect all IoT components.
 
-# 3️⃣ Set Up Tesseract
-# Download and install Tesseract OCR from https://github.com/UB-Mannheim/tesseract/wiki
-# Then update the path in `app.py`
-# Example:
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+## Future Improvements
+- **Integration with Payment Systems** for automated billing.
+- **Enhanced AI Models** for improved vehicle detection and plate recognition.
+- **Mobile App** for real-time parking status updates and reservations.
 
-# 4️⃣ Run the Application
-python app.py
-```
-
-## **API Endpoints**
-| Endpoint         | Method | Description                                                       |
-|-----------------|--------|-------------------------------------------------------------------|
-| `/`             | GET    | Renders the homepage                                            |
-| `/process_images` | GET    | Detects vehicles, extracts license plates, and retrieves parking slot info |
-
-## **How It Works**
-1. The system loads and processes images using YOLO.
-2. If a vehicle is detected, the license plate is extracted via OCR.
-3. The detection data is sent to ThingSpeak.
-4. The system retrieves the available parking slot from ThingSpeak.
-5. The result is displayed in the Flask web interface.
-
-## **Workflow**
-1. Load 5 images (in `.jpg`, `.jpeg`, or `.png` format).
-2. YOLO model detects vehicles (Car, Van, Truck, Bus, Motorcycle, Bicycle).
-3. If a vehicle is detected:
-   - YOLO model detects the license plate.
-   - OpenCV extracts the bounding box.
-   - Tesseract OCR reads the plate number.
-4. Send vehicle detection data to ThingSpeak.
-5. Wait 10 seconds for parking slot data update.
-6. Retrieve slot information from ThingSpeak.
-7. Display detected vehicle, license plate, and slot information in the web Interface.
-
-## **Project Structure**
-```bash
-📂 Automated-Parking-System
- ┣ 📂 templates
- ┃ ┗ 📜 index.html
- ┣ 📜 app.py
- ┣ 📜 best_5.pt  # YOLO model for vehicle detection
- ┣ 📜 License.pt # YOLO model for license plate detection
- ┣ 📜 requirements.txt  # Dependency list
- ┗ 📜 README.md
-```
-
-## **Future Improvements**
-✅ Integrate real-time video processing for live camera feeds.
-✅ Implement a database for vehicle entry logs.
-✅ Add user authentication for managing parking slots.
+---
+**Feel free to contribute to this project by submitting pull requests or opening issues!** 🚀
 
