@@ -149,3 +149,4 @@ The graph shows that YOLOv8, which we used for object detection, achieves a 94% 
 ✅ Implement a database for vehicle entry logs.
 ✅ Add user authentication for managing parking slots.
 
+Author:Kush Bohare
