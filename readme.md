@@ -1,4 +1,4 @@
-# IoT-Based Smart Parking System
+# IoT-Based Smart Parking System yo
 
 ## Overview
 The **IoT-Based Smart Parking System** is an intelligent and automated parking solution that leverages **YOLOv8** for vehicle detection, **ultrasonic sensors** for slot availability tracking, and **ESP32** microcontrollers for IoT-based communication. This project aims to enhance the efficiency of parking management by minimizing human intervention and ensuring seamless vehicle entry and exit.
